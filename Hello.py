@@ -14,7 +14,6 @@ if game == 1: #Player versus Computer
     while number != guess:
         guess = int(input('have a try: '))
         if guess > number:
-
             print("Try a little lower number")
             print(f'I\'m Sorry you failed again... for the {counter} time')
             counter = counter + 1
