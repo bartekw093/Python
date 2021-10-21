@@ -12,19 +12,28 @@ if game == 1: #Player versus Computer
     guess = 0
     counter = 1
     while number != guess:
-        guess = int(input('have a try: '))
-        if guess > number:
-            print("Try a little lower number")
-            print(f'I\'m Sorry you failed again... for the {counter} time')
-            counter = counter + 1
-        elif guess < number:
-            print("try a little higher number")
-            print(f'I\'m Sorry you failed again... for the {counter} time')
-            counter = counter + 1
+        guess = (input('have a try: '))
+        if guess.isnumeric():           
+            if isinstance(guess,int):
+                pass
+            else:                               
+                guess= int(guess)                
+                if guess > number:
+                    print("Try a little lower number")
+                    print(f'I\'m Sorry you failed again... for the {counter} time')
+                    counter = counter + 1
+                elif guess < number:
+                    print("try a little higher number")
+                    print(f'I\'m Sorry you failed again... for the {counter} time')
+                    counter = counter + 1
+                else:
+                    if guess==number:
+                        print(f'Congratulations, you won! it only took you {counter} tries')
+                        break
         else:
-            if guess==number:
-                print(f'Congratulations, you won! it only took you {counter} tries')
-                break       
+            print("Please use numeric values!")
+
+
 elif game == 2: #Player versus player
     print('Player 1 please enter number between 1 and 10 in pasword field')
     hiden = hide.getpass()
@@ -32,18 +41,25 @@ elif game == 2: #Player versus player
     guess = 0
     counter = 1
     while hiden != guess:
-        guess = int(input('have a try: '))
-        if guess > hiden:
-            print("Try a little lower number")
+        guess = input('have a try: ')
+        if guess.isnumeric():           
+            if isinstance(guess,int):
+                pass
+            else:                               
+                guess= int(guess)
+            if guess > hiden:
+                print("Try a little lower number")
             
-            print(f'I\'m Sorry you failed again... for the {counter} time')
-            counter = counter + 1
-        elif guess < hiden:
-            print("Try a little higher number")
+                print(f'I\'m Sorry you failed again... for the {counter} time')
+                counter = counter + 1
+            elif guess < hiden:
+                print("Try a little higher number")
             
-            print(f'I\'m Sorry you failed again... for the {counter} time')
-            counter = counter + 1
+                print(f'I\'m Sorry you failed again... for the {counter} time')
+                counter = counter + 1
+            else:
+                if guess==hiden:
+                    print(f'Congratulations, you won! it only took you {counter} tries')
+                    break
         else:
-            if guess==hiden:
-                print(f'Congratulations, you won! it only took you {counter} tries')
-                break
+            print("Please use numeric values!")
